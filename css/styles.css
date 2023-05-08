@@ -9,10 +9,12 @@ body {
   --back-color: #ffffff;
   --heeader-color: #2e2f42;
   --hover-element: #404bbf;
+  --hover-socials: #31d0aa;
   --button-color: #4d5ae5;
   --text-descr: #434455;
   --text-on-dark: #f4f4fd;
   --nav-border: #e7e9fc;
+  --icon-color: #8e8f99;
 }
 
 /* reset start */
@@ -37,8 +39,21 @@ img {
   padding: 0 15px;
   margin: 0 auto;
 
-  /* outline: 2px solid red;
-  outline-offset: -2px; */
+  outline: 2px solid red;
+  outline-offset: -2px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* Sections Background color */
@@ -46,14 +61,15 @@ img {
   background-color: var(--heeader-color);
 }
 .hero-background {
-  background-color: var(--heeader-color);
+  /* background-color: var(--heeader-color);
   text-align: center;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.02em; */
 }
 
 .list {
   list-style: none;
 }
+
 /* Logo style */
 .logo-studio {
   color: var(--heeader-color);
@@ -153,6 +169,7 @@ img {
   color: var(--back-color);
   border: 1px solid transparent;
 }
+/* Text Styles */
 .slogan {
   font-weight: 700;
   font-size: 56px;
@@ -186,10 +203,16 @@ img {
 .descr {
   letter-spacing: 0.02em;
   color: var(--text-descr);
+  margin-bottom: 8px;
 }
 .descr-footer {
   color: var(--text-on-dark);
   max-width: 264px;
+}
+.footer-social {
+  font-weight: 500;
+  color: var(--text-on-dark);
+  margin-bottom: 16px;
 }
 .section-team {
   background-color: var(--text-on-dark);
@@ -202,10 +225,16 @@ img {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-/* Style header panel */
+/**
+  |============================
+  | Header Styles
+  |============================
+*/
 .header {
   background-color: var(--back-color);
   border-bottom: 1px solid var(--nav-border);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header-container {
   display: flex;
@@ -221,13 +250,33 @@ img {
   align-items: center;
   gap: 40px;
 }
-
-/* Style Hero Section */
+/**
+  |============================
+  | Hero Section Styles
+  |============================
+*/
 .hero-container {
   padding: 188px 0;
   align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin: 0 auto;
+  max-width: 1440px;
+  background-color: var(--heeader-color);
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/hero-back-image.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-/* Style Features Section */
+/**
+  |============================
+  | Feature Section Styles
+  |============================
+*/
 .features-container {
   align-items: center;
   padding-top: 120px;
@@ -240,11 +289,28 @@ img {
   gap: 24px;
 }
 .feaures-list-block {
-  width: calc((100%-72px) / 4);
+  width: calc((100% - 72px) / 4);
   padding: 0px;
 }
-
-/* Style wawd Section */
+.feature-icon-container {
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4fd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.feature-icon {
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+/**
+  |============================
+  | WhatAreWeDoing Section Styles
+  |============================
+*/
 .wawd-container {
   align-items: center;
   padding-bottom: 120px;
@@ -254,14 +320,17 @@ img {
   padding: 0px;
   gap: 24px;
 }
-.fwawd-list-block {
-  width: calc((100%-48px) / 3);
+.wawd-list-block {
+  width: calc((100% - 48px) / 3);
 }
-/* Style Our Team Section */
+/**
+  |============================
+  | Our Team Section Styles
+  |============================
+*/
 .team-container {
   align-items: center;
   padding-bottom: 120px;
-  padding-top: 120px;
 }
 .team-list-container {
   display: flex;
@@ -274,12 +343,110 @@ img {
 .card-content {
   padding: 32px 16px;
 }
-/* Style Footer Section */
+/* OurTeam Socials icon style */
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+.socials-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  background-color: var(--button-color);
+  border-radius: 50%;
+}
+.socials-link:hover,
+.socials-link:focus {
+  background-color: var(--hover-element);
+}
+.socials-icon {
+  fill: currentColor;
+}
+/**
+  |============================
+  | Customers Section Styles
+  |============================
+*/
+.customers-container {
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.customers-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 48px;
+  column-gap: 24px;
+}
+.customers-list-block {
+  width: calc((100% - 120px) / 6);
+  height: 88px;
+}
+.customers-list-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--icon-color);
+  border-radius: 4px;
+  color: var(--icon-color);
+}
+.customers-list-link:hover,
+.customers-list-link:focus {
+  border-color: var(--hover-element);
+  color: var(--hover-element);
+}
+.customers-icon {
+  fill: currentColor;
+}
+/**
+  |============================
+  | Footer Styles
+  |============================
+*/
 .footer-container {
+  display: flex;
+  align-items: baseline;
   padding-top: 100px;
   padding-bottom: 100px;
 }
-/* Style Portfolio */
+.footer-logo-block {
+  margin-right: 120px;
+}
+/* footer Socials icon style */
+.socials-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.socials-link-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  background-color: var(--button-color);
+  border-radius: 50%;
+}
+.socials-link-footer:hover,
+.socials-link-footer:focus {
+  background-color: var(--hover-socials);
+}
+/**
+  |============================
+  | Portfolio Section Styles
+  |============================
+*/
 .portfolio-container {
   padding: 96px 0 120px;
 }
@@ -302,6 +469,11 @@ img {
 }
 .card-link {
   display: inline-block;
+}
+.card-link:hover,
+.card-link:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .card-portfolio-content {
   padding: 32px 16px;
